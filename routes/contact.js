@@ -9,12 +9,12 @@ router.post('/contact-us', (req, res) =>{
         return res.status(404).send(message.error.details[0].message);
     }
     try{
-        sendMessage(process.env.Email, process.env.Email, req.body.message, req.body.fullName)
+        sendMessage(process.env.Email, process.env.Email, req.body.message, req.body.fullName, req.body.email)
     }
     catch(e){
         console.log(e)
     }
-    res.status(200).send('Hello World');
+    res.status(200).send('Message sent');
 
 })
 

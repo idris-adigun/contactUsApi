@@ -35,7 +35,7 @@ const handlebars = require('nodemailer-express-handlebars')
         return transporter;
     }
 
-    const sendMessage = async (sender, recipient, message, senderName) => {
+    const sendMessage = async (sender, recipient, message, senderName, senderEmail) => {
               // send mail with defined transport object
         let transporter = transpoter();
         let info = await transporter.sendMail({
@@ -45,7 +45,8 @@ const handlebars = require('nodemailer-express-handlebars')
             text: ``, // plain text body
             context: {
                 message: message,
-                name: senderName
+                name: senderName,
+                email: senderEmail
             },
             template: 'contact_us'
         })
